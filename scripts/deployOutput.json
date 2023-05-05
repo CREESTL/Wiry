@@ -1,0 +1,14 @@
+{
+  "polygon_testnet": {
+    "Wiry": {
+      "address": "",
+      "verification": ""
+    }
+  },
+  "polygon_mainnet": {
+    "Wiry": {
+      "address": "",
+      "verification": ""
+    }
+  }
+}
