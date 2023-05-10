@@ -64,22 +64,22 @@ npx hardhat run scripts/deploy.js --network <network name here>
 
 Deployment script takes about 5 minutes to complete. Please, be patient!
 After the contracts get deployed you can find their _addresses_ and code verification _URLs_ in the `scripts/deployOutput.json` file (see [Structure of Deploy Output File](#output)).
-Note that this file only refreshes the addresses of contracts that have been successfully deployed (or redeployed). If you deploy only a single contract then its address would get updated and all other addresses would remain untouched and would link to _old_ contracts.
-Please, **do not** write anything to `deployOutput.json` file yourself! It is a read-only file.
+Note that this file only refreshes the addresses of contracts that have been successfully deployed (or redeployed). If you deploy only a single contract then its address would get updated and all other addresses would remain untouched and would link to _old_ contracts.  
+Please, **do not** write anything to `deployOutput.json` file yourself! It is a read-only file.  
 All deployed contracts _are verified_ on [Polygonscan](https://mumbai.polygonscan.com/).
 
 <a name="networks"/>
 
 ### Networks
 
-а) **Polygon test** network
+а) **Polygon test** network  
 Make sure you have _enough test tokens_ for testnet.
 
 ```
 npx hardhat run <script name here> --network polygon_testnet
 ```
 
-b) **Polygon main** network
+b) **Polygon main** network  
 Make sure you have _enough real tokens_ in your wallet. Deployment to the mainnet costs money!
 
 ```
@@ -123,6 +123,8 @@ This will generate a single new wallet and show its address and private key. **S
 A new wallet _does not_ hold any tokens. You have to provide it with tokens of your choice.
 Wallet's address and private key should be pasted into the `.env` file (see [Prerequisites](#preqs)).
 
+<a name="output"/>
+
 ### Structure of Deploy Output File
 
 This file contains the result of contracts deployment.
@@ -139,7 +141,8 @@ Each part contains information about all deployed contracts:
 
 #### Ownership  
 
-The owner of the contract has a right to call special functions of the contract. *Owner* is the wallet from which the contract was deployed to the network.  
+The *owner* is the wallet from which the contract was deployed to the network.  
+The owner of the contract has a right to call special functions of the contract.     
 Owner is allowed to:
 - pause / unpause contract
 - mint tokens
@@ -147,14 +150,21 @@ Owner is allowed to:
 - add addresses to blacklist
 - remove addresses from blacklist
 
-
 #### Pause / Unpause
 
-The Wiry token is a pausable contract. Than means, it's execution can be paused at any moment and unpaused later. When paused, no tokens transfers will happen.  
+The Wiry token is a pausable contract. Than means, its execution can be paused at any moment and unpaused later. When paused, no tokens transfers will happen.  
 Please note, that *only the owner* of the contract can pause and unpause it.
+- To **pause** contract use `pause` function
+- To **unpause** contract use `unpause` function
 
-- To **pause** contract use `pause` function. 
-- To **unpause** contract use `unpause` function.
+
+#### Blacklist
+
+Wiry token has a blacklist functionality. Blacklisted users can neither receive, nor send Wiry tokens.    
+Please note, that *only the owner* of the contract can add / remove addressed from the blacklist.  
+- To **add** address to the blacklist use `addToBlackList` function
+- To **remove** address from the blacklist use `removeFromBlackList` function
+
 ---
 
 <a name="issues"/>
