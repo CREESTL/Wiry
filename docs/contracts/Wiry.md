@@ -4,6 +4,20 @@
 
 ## Methods
 
+### INITIAL_SUPPLY
+
+```solidity
+function INITIAL_SUPPLY() external view returns (uint256)
+```
+
+The initial amount of tokens that should be minted
+
+#### Returns
+
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
+
 ### addToBlackList
 
 ```solidity
@@ -100,20 +114,6 @@ List of users which are forbidden to receive or send tokens
 | ---- | ---- | ----------- |
 | \_0  | bool | undefined   |
 
-### burn
-
-```solidity
-function burn(uint256 amount) external nonpayable
-```
-
-_Destroys `amount` tokens from the caller. See {ERC20-\_burn}._
-
-#### Parameters
-
-| Name   | Type    | Description |
-| ------ | ------- | ----------- |
-| amount | uint256 | undefined   |
-
 ### burnFrom
 
 ```solidity
@@ -184,20 +184,6 @@ _Atomically increases the allowance granted to `spender` by the caller. This is 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | \_0  | bool | undefined   |
-
-### initialSupply
-
-```solidity
-function initialSupply() external view returns (uint256)
-```
-
-The initial amount of tokens that should be minted
-
-#### Returns
-
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
 
 ### mint
 
