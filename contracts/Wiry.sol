@@ -8,7 +8,6 @@ import "./interfaces/IWiry.sol";
 
 /// @title The WIRY token
 contract Wiry is IWiry, ERC20, Pausable, Ownable {
-
     /// @notice The initial amount of tokens that should be minted
     uint256 public constant INITIAL_SUPPLY = 100_000;
 
@@ -35,14 +34,10 @@ contract Wiry is IWiry, ERC20, Pausable, Ownable {
         _mint(to, amount);
     }
 
-	/// @notice See {IWiry-burnFrom}
-	function burnFrom(
-		address from,
-		uint256 amount
-		) external onlyOwner {
-		_burn(from, amount);
-	}
-
+    /// @notice See {IWiry-burnFrom}
+    function burnFrom(address from, uint256 amount) external onlyOwner {
+        _burn(from, amount);
+    }
 
     /// @notice See {IWiry-addToBlackList}
     function addToBlackList(address user) external onlyOwner {
