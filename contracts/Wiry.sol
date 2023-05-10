@@ -19,7 +19,6 @@ contract Wiry is IWiry, ERC20, Pausable, Ownable {
         _mint(msg.sender, INITIAL_SUPPLY * 10 ** decimals());
     }
 
-
     /// @notice See {IWiry-pause}
     function pause() external onlyOwner {
         _pause();
