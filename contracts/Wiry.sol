@@ -19,6 +19,7 @@ contract Wiry is IWiry, ERC20, Pausable, Ownable {
         _mint(msg.sender, INITIAL_SUPPLY * 10 ** decimals());
     }
 
+
     /// @notice See {IWiry-pause}
     function pause() external onlyOwner {
         _pause();
@@ -53,6 +54,11 @@ contract Wiry is IWiry, ERC20, Pausable, Ownable {
         require(blackListed[user], "Wiry: Not blacklisted!");
         blackListed[user] = false;
         emit RemovedFromBlackList(user);
+    }
+
+    /// @notice See {ERC20-decimals}
+    function decimals() public pure override returns (uint8) {
+        return 2;
     }
 
     /// @dev This hook is triggers before each token transfer. Allows

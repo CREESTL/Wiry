@@ -23,8 +23,8 @@ describe("WIRY token", function () {
 
             expect(await wiry.name()).to.equal("Wiry");
             expect(await wiry.symbol()).to.equal("WIRY");
-            expect(await wiry.decimals()).to.equal(18);
-            expect(await wiry.initialSupply()).to.equal(100_000);
+            expect(await wiry.decimals()).to.equal(2);
+            expect(await wiry.INITIAL_SUPPLY()).to.equal(100_000);
         });
     });
 
