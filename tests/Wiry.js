@@ -4,6 +4,7 @@ const { anyValue } = require("@nomicfoundation/hardhat-chai-matchers/withArgs");
 const { loadFixture } = require("@nomicfoundation/hardhat-network-helpers");
 const { parseEther, parseUnits } = ethers.utils;
 const zeroAddress = ethers.constants.AddressZero;
+const BigNumber = ethers.BigNumber;
 
 describe("WIRY token", function () {
     async function deploys() {
@@ -12,19 +13,26 @@ describe("WIRY token", function () {
         let wiryFactory = await ethers.getContractFactory("Wiry");
         let wiry = await wiryFactory.deploy();
         await wiry.deployed();
-        await wiry.mint(ownerAcc.address, parseEther("1000000"));
-
         return { wiry };
     }
 
     describe("Deployment", async function () {
-        it("OK: Have correct name, symbol, decimals", async function () {
+        it("Should have correct parameters after deploy", async function () {
             let { wiry } = await loadFixture(deploys);
 
             expect(await wiry.name()).to.equal("Wiry");
             expect(await wiry.symbol()).to.equal("WIRY");
             expect(await wiry.decimals()).to.equal(2);
-            expect(await wiry.INITIAL_SUPPLY()).to.equal(100_000);
+
+            let initSupply = await wiry.INITIAL_SUPPLY();
+            let decimals = await wiry.decimals();
+
+            expect(initSupply).to.equal(100_000);
+
+            // Check preminted tokens
+            expect(await wiry.balanceOf(ownerAcc.address)).to.equal(
+                initSupply.mul(BigNumber.from("10").pow(decimals))
+            );
         });
     });
 

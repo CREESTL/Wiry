@@ -1,8 +1,8 @@
 {
   "polygon_testnet": {
     "Wiry": {
-      "address": "0x8BD59108742e460868E2f477533cA8322a19369e",
-      "verification": "https://mumbai.polygonscan.com/address/0x8BD59108742e460868E2f477533cA8322a19369e#code"
+      "address": "0xa36b0AEfD68174E3e611380769773eFC1b84A1De",
+      "verification": "https://mumbai.polygonscan.com/address/0xa36b0AEfD68174E3e611380769773eFC1b84A1De#code"
     }
   },
   "polygon_mainnet": {
