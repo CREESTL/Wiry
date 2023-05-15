@@ -148,7 +148,11 @@ Owner is allowed to:
 - mint tokens
 - burn tokens from users` wallets
 - add addresses to blacklist
-- remove addresses from blacklist
+- remove addresses from blacklist  
+
+The owner can:
+- **Transfer** ownership to the other address using `transferOwnership` function. The other address becomes the new owner. 
+- **Renounce** ownership using `renounceOwnership` function. That leaves the contract without owner. Special functions will be unavailable.
 
 #### Pause / Unpause
 
